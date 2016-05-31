@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/private_img"
+        style="@style/menu_txt_20sp"
+        android:text="头像"
+        android:background="#efefe2"/>
+
+
+    <TextView
+        android:id="@+id/menu_describe"
+        style="@style/menu_txt_14sp"
+        android:text="这道菜很简单，也很好吃并且很有营养，一起来做做看吧，哈哈哈"
+        />
+
+</LinearLayout>

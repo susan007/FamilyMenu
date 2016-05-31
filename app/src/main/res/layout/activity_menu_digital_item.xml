@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/menu_finished_step_img"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/ac_info_bg" />
+
+    <TextView
+        android:id="@+id/menu_finished_step_txt"
+        style="@style/menu_txt_16sp"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical"
+        android:text="1、将猪肉洗净，在盐水里浸泡五分钟，沥干后切成块" />
+
+</LinearLayout>
