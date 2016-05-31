@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:orientation="vertical"
+     android:background="#998899">
+     <ImageView 
+         android:id="@+id/left_back"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:src="@drawable/hong_three_btn"
+         android:padding="13dp"
+         android:layout_alignParentLeft="true"
+         android:layout_centerVertical="true"/>
+     <TextView 
+         android:id="@+id/title_show"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="菜谱查询"
+         android:layout_centerInParent="true"
+         android:textColor="#ffffff"
+         android:textSize="18sp"/>
+     <ImageView 
+         android:id="@+id/right_manage"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:src="@drawable/hong_smile"
+         android:padding="13dp"
+         android:layout_alignParentRight="true"
+         android:layout_centerVertical="true"/>
+    
+
+</RelativeLayout>

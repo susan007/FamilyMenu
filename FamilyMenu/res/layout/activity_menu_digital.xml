@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/activity_title" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="15dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/menu_finished_img"
+                android:layout_width="fill_parent"
+                android:layout_height="250dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ac_info_bg" />
+
+            <TextView
+                android:id="@+id/menu_title"
+                style="@style/menu_txt_20sp"
+                android:text="秘制红烧肉" 
+                android:background="#efefe2"/>
+
+            <TextView
+                android:id="@+id/menu_describe"
+                style="@style/menu_txt_14sp"
+                android:text="这道菜很简单，也很好吃并且很有营养，一起来做做看吧，哈哈哈" 
+                />
+
+            <View style="@style/menu_devide_line" />
+
+            <TextView
+                android:id="@+id/menu_material"
+                style="@style/menu_txt_16sp"
+                android:text="食材清单：" 
+                android:background="#efefe2"/>
+
+            <TextView
+                android:id="@+id/menu_material_list"
+                style="@style/menu_txt_14sp"
+                android:layout_marginTop="5dp"
+                android:text="五花肉，1000克。。。。。。" />
+
+            <View style="@style/menu_devide_line" />
+
+            <TextView
+                android:id="@+id/menu_steps"
+                style="@style/menu_txt_16sp"
+                android:text="具体做法:" 
+                android:background="#efefe2"/>
+
+            <com.gree.tools.MyListView
+                android:id="@+id/menu_step_listView"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:scrollbars="none" >
+            </com.gree.tools.MyListView>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
