@@ -32,7 +32,6 @@ public class MenuTool {
 
 	// 配置您申请的KEY
 	public static final String APPKEY = "02e99da3e9cc092de38f030017fcf0a7";
-	private ArrayList<E>
 
 
 	// 1.菜谱大全
