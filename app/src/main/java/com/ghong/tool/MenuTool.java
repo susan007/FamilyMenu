@@ -93,7 +93,7 @@ public class MenuTool{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return result_label; 
+		return result;
 	}
 
 	// 3.按标签检索菜谱
@@ -126,7 +126,7 @@ public class MenuTool{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return searchByLabelResult; 
+		return result;
 	}
 
 	// 4.按菜谱ID查看详细  我怎么知道id是什么？
@@ -158,7 +158,7 @@ public class MenuTool{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return searchById;
+		return result;
 	}
 
 	/**

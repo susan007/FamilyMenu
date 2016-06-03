@@ -6,10 +6,6 @@
             android:id="@+id/menu_name"
             android:icon="@drawable/ic_action_location_found_dark"
             android:title="搜菜名"/>
-        <item
-            android:id="@+id/menu_sort"
-            android:icon="@drawable/ic_action_location_found_dark"
-            android:title="搜分类"/>
 
         <item
             android:id="@+id/menu_label"

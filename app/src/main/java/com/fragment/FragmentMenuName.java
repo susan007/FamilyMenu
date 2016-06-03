@@ -1,29 +1,17 @@
 package com.fragment;
 
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -42,7 +30,7 @@ import com.hong.bean.byname.MStep;
 import com.hong.bean.byname.MenuDigital;
 import com.hong.bean.byname.MenuResult;
 import com.inthecheesefactory.lab.designlibrary.R;
-import com.inthecheesefactory.lab.designlibrary.SearchMenuStepActivty;
+import com.inthecheesefactory.lab.designlibrary.SearchByMenuNameStepActivty;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -51,6 +39,8 @@ import java.util.Map;
 
 /**
  * Created by susan on 16-5-31.
+ * <p/>
+ * 问题：布局里已经有了一个RecycleView为什么还要加一个ListView去实现？我脑子傻了
  */
 public class FragmentMenuName extends Fragment {
 
@@ -96,7 +86,6 @@ public class FragmentMenuName extends Fragment {
                 case 1:
                     // 设置列表
                     setMenuListView();
-                    Log.e(tag, msg.obj + "");
                     break;
                 case 0:
 
@@ -107,28 +96,30 @@ public class FragmentMenuName extends Fragment {
 //                            Log.e("CodeLabActivity","哈哈哈哈哈哈哈哈哈哈哈哈哈，我被点击了");
 //                        }
 //                    }).show();
-                    Toast.makeText(getContext(),"没有查询到该菜",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "没有查询到该菜", Toast.LENGTH_SHORT).show();
                     break;
 
                 default:
                     break;
             }
-        };
+        }
+
+        ;
     };
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view=inflater.inflate(R.layout.fragment_menu_name, container, false);
+        view = inflater.inflate(R.layout.fragment_menu_name, container, false);
         initView();
         initListener();
 
         return view;
     }
 
-    public void initView(){
+    public void initView() {
         menuInput = (EditText) view.findViewById(R.id.menu_check);
         checkBtn = (Button) view.findViewById(R.id.check_btn);
-        menuListView = (ListView)view. findViewById(R.id.menu_search_result_list);
+        menuListView = (ListView) view.findViewById(R.id.menu_search_result_list);
         titleList = new ArrayList<String>();
         tagList = new ArrayList<String>();
         imgList = new ArrayList<String>();
@@ -136,10 +127,10 @@ public class FragmentMenuName extends Fragment {
         pjb = new ParseJsonobject();
         mr = new MenuResult();
 
-        menuResultRecView=(RecyclerView)view.findViewById(R.id.menu_result_recyclerview);
+        menuResultRecView = (RecyclerView) view.findViewById(R.id.menu_result_recyclerview);
     }
 
-    public void initListener(){
+    public void initListener() {
         //菜谱结果列表
         menuListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -148,7 +139,7 @@ public class FragmentMenuName extends Fragment {
                                     int position, long id) {
                 // 根据id加载不同的做菜细节
                 Intent intent = new Intent(getContext(),
-                        SearchMenuStepActivty.class);
+                        SearchByMenuNameStepActivty.class);
                 Bundle bundle = new Bundle();
                 // 传一个对象过去？
                 bundle.putSerializable("MD", mdg.get(position));
@@ -178,7 +169,7 @@ public class FragmentMenuName extends Fragment {
 
                 //菜谱列表
                 menuResultRecView.setHasFixedSize(true);
-                llm=new LinearLayoutManager(getContext());
+                llm = new LinearLayoutManager(getContext());
                 menuResultRecView.setLayoutManager(llm);
             }
         });
@@ -188,12 +179,12 @@ public class FragmentMenuName extends Fragment {
     /**
      * 设置ListView
      */
-    public void setMenuListView( ) {
+    public void setMenuListView() {
         mra = new MenuResultAdapter(getContext(), initData(),
-                R.layout.activity_menu_search_list_item, new String[] {
-                "title", "tag", "img" }, new int[] {
+                R.layout.activity_menu_search_list_item, new String[]{
+                "title", "tag", "img"}, new int[]{
                 R.id.menu_finished_title, R.id.menu_finished_tags,
-                R.id.menu_finished_img });
+                R.id.menu_finished_img});
         menuListView.setAdapter(mra);
     }
 
@@ -208,15 +199,11 @@ public class FragmentMenuName extends Fragment {
         for (int i = 0; i < titleList.size(); i++) {
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("title", titleList.get(i));
-            Log.e("Main", titleList.get(i));
             map.put("tag", tagList.get(i));
-            Log.e("Main", tagList.get(i));
             map.put("img", imgList.get(i));
-            Log.e("Main", imgList.get(i));
 
             list.add(map);
         }
-
         // 绑定数据
         return list;
     }
@@ -226,85 +213,65 @@ public class FragmentMenuName extends Fragment {
      * 开启一个线程开始查询菜
      */
     public void startCheckMenu() {
-                String menu_name = menuInput.getText().toString().trim();
-                Log.e(tag, menu_name);
-                if (!TextUtils.isEmpty(MenuTool.getRequest1(menu_name))) {
-                    // 解析json数据
-                    mr = pjb.parseMenuResult2(MenuTool.getRequest1(menu_name));
-                    // get search result  空指针异常
-                    if (mr.getResultcode()!=null && mr.getResultcode().equals("200")) {
-                        md = mr.getResult();
-                        if (!TextUtils.isEmpty(md.getPn())
-                                && !TextUtils.isEmpty(md.getRn())
-                                && !TextUtils.isEmpty(md.getTotalNum())
-                                && md.getData() != null) {
+        String menu_name = menuInput.getText().toString().trim();
+        if (!TextUtils.isEmpty(MenuTool.getRequest1(menu_name))) {
+            // 解析json数据
+            mr = pjb.parseMenuResult2(MenuTool.getRequest1(menu_name));
+            // get search result  空指针异常
+            if (mr.getResultcode() != null && mr.getResultcode().equals("200")) {
+                md = mr.getResult();
+                if (!TextUtils.isEmpty(md.getPn())
+                        && !TextUtils.isEmpty(md.getRn())
+                        && !TextUtils.isEmpty(md.getTotalNum())
+                        && md.getData() != null) {
 
-                            Log.e("MainActivity", md.getPn());
-                            Log.e("MainActivity", md.getRn());
-                            Log.e("MainActivity", md.getTotalNum());
-                            Log.e("MainActivity", md.getData().toString());
-                            // 获得所有菜谱的细节
-                            mdg = md.getData();
-                            for (MenuDigital i : mdg) {
+                    // 获得所有菜谱的细节
+                    mdg = md.getData();
+                    for (MenuDigital i : mdg) {
 
-                                if (!TextUtils.isEmpty(i.getTitle())
-                                        && !TextUtils.isEmpty(i.getBurden())
-                                        && !TextUtils.isEmpty(i.getId())
-                                        && !TextUtils.isEmpty(i.getImtro())
-                                        && !TextUtils.isEmpty(i
-                                        .getIngredients())
-                                        && !TextUtils.isEmpty(i.getTags())
-                                        && i.getAlbums() != null
-                                        && i.getSteps() != null) {
+                        if (!TextUtils.isEmpty(i.getTitle())
+                                && !TextUtils.isEmpty(i.getBurden())
+                                && !TextUtils.isEmpty(i.getId())
+                                && !TextUtils.isEmpty(i.getImtro())
+                                && !TextUtils.isEmpty(i
+                                .getIngredients())
+                                && !TextUtils.isEmpty(i.getTags())
+                                && i.getAlbums() != null
+                                && i.getSteps() != null) {
 
-                                    Log.e("MainActivity", i.getTitle());
-                                    Log.e("MainActivity", i.getBurden());
-                                    Log.e("MainActivity", i.getId());
-                                    Log.e("MainActivity", i.getImtro());
-                                    Log.e("MainActivity", i.getIngredients());
-                                    Log.e("MainActivity", i.getTags());
-                                    Log.e("MainActivity", i.getAlbums()
-                                            .toString());
-                                    Log.e("MainActivity", i.getSteps()
-                                            .toString());
-                                    // 获取标题
-                                    titleList.add(i.getTitle());
-                                    // 获取tag
-                                    tagList.add(i.getTags());
-                                    // 获取图片
-                                    imgList.add(i.getAlbums().get(0));
+                            // 获取标题
+                            titleList.add(i.getTitle());
+                            // 获取tag
+                            tagList.add(i.getTags());
+                            // 获取图片
+                            imgList.add(i.getAlbums().get(0));
 
-                                    // 做菜的详细步骤
-                                    ms = i.getSteps();
-                                    for (MStep step : ms) {
-                                        Log.d("MainActivity", step.getImg());
-                                        Log.d("MainActivity", step.getStep());
-                                    }
-
-                                } else {
-                                    Message messageEr = new Message();
-                                    messageEr.what = 0;
-                                    handler.sendMessage(messageEr);
-                                }
-
-                            }
-
-                            Message messageOK = new Message();
-                            messageOK.what = 1;
-                            messageOK.obj = mr.getResultcode();
-                            handler.sendMessage(messageOK);
-
+                            // 做菜的详细步骤
+                            ms = i.getSteps();
+                        } else {
+                            Message messageEr = new Message();
+                            messageEr.what = 0;
+                            handler.sendMessage(messageEr);
                         }
-                    } else {
-                        Message messageEr = new Message();
-                        messageEr.what = 0;
-                        handler.sendMessage(messageEr);
+
                     }
-                } else {
-                    Message messageEr = new Message();
-                    messageEr.what = 0;
-                    handler.sendMessage(messageEr);
+
+                    Message messageOK = new Message();
+                    messageOK.what = 1;
+                    messageOK.obj = mr.getResultcode();
+                    handler.sendMessage(messageOK);
+
                 }
+            } else {
+                Message messageEr = new Message();
+                messageEr.what = 0;
+                handler.sendMessage(messageEr);
+            }
+        } else {
+            Message messageEr = new Message();
+            messageEr.what = 0;
+            handler.sendMessage(messageEr);
+        }
     }
 
 }

@@ -2,14 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:layout_marginTop="8dp">
 
         <LinearLayout
             android:id="@+id/check_ll"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            >
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="0dp"
@@ -19,16 +23,17 @@
                 <EditText
                     android:id="@+id/menu_check"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="45dp"
                     android:hint="菜名" />
             </android.support.design.widget.TextInputLayout>
 
             <Button
                 android:id="@+id/check_btn"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
                 android:layout_weight="1"
-                android:text="查询" />
+                android:text="查询"
+                android:background="@drawable/transport_btn"/>
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
@@ -43,7 +48,8 @@
             android:id="@+id/menu_search_result_list"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:scrollbars="none">
+            android:scrollbars="none"
+            android:divider="@android:color/transparent">
 
         </com.ghong.tool.MyListView>
 

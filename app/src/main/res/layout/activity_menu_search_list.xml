@@ -8,7 +8,8 @@
         android:id="@+id/menu_search_result_list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:scrollbars="none">
+        android:scrollbars="none"
+        android:divider="@android:color/transparent">
         
     </ListView>
     

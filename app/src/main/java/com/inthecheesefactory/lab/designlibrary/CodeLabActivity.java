@@ -159,19 +159,21 @@ public class CodeLabActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * 侧滑栏
+     * @param item
+     */
     public void selectDrawerItem(MenuItem item) {
         int itemId = item.getItemId();
         Class fragmentClass;
         switch (itemId) {
             case R.id.menu_name:
+                Toast.makeText(this,"正在加载，请耐心等待",Toast.LENGTH_SHORT).show();
                 fragmentClass = FragmentMenuName.class;
                 ctl.setTitle("佳肴菜名");//佳肴菜名 佳肴分类  佳肴标签
                 break;
-            case R.id.menu_sort:
-                fragmentClass = FragmentMenuSort.class;
-                ctl.setTitle("佳肴分类");//佳肴菜名 佳肴分类  佳肴标签
-                break;
             case R.id.menu_label:
+                Toast.makeText(this,"正在加载，请耐心等待",Toast.LENGTH_SHORT).show();
                 fragmentClass = FragmentMenuLabel.class;
                 ctl.setTitle("佳肴标签");//佳肴菜名 佳肴分类  佳肴标签
                 break;
@@ -223,11 +225,11 @@ public class CodeLabActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 

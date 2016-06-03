@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.design.widget.Snackbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -119,7 +118,7 @@ public class SearchResultActivity extends Activity {
 					int position, long id) {
 				// 根据id加载不同的做菜细节
 				Intent intent = new Intent(SearchResultActivity.this,
-						SearchMenuStepActivty.class);
+						SearchByMenuNameStepActivty.class);
 				Bundle bundle = new Bundle();
 				// 传一个对象过去？
 				bundle.putSerializable("MD", mdg.get(position));

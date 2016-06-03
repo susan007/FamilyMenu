@@ -31,7 +31,7 @@
             <!--<meta-data android:name="com.inthecheesefactory.lab.glidepicasso.GlideConfiguration"-->
                 <!--android:value="GlideModule"/>-->
         <!--</activity>-->
-        <activity android:name="com.inthecheesefactory.lab.designlibrary.SearchMenuStepActivty">
+        <activity android:name=".SearchByMenuNameStepActivty">
             <meta-data android:name="com.inthecheesefactory.lab.glidepicasso.GlideConfiguration"
                 android:value="GlideModule"/>
         </activity>
