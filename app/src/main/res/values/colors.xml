@@ -2,4 +2,9 @@
 <resources>
     <color name="nav_item_icon_tint_color">#333</color>
     <color name="nav_item_text_color">#333</color>
+    <color name="pink_low">#FFFAF0</color>
+    <color name="pink_height">#FFEFDB</color>
+    <color name="pink_more_height">#FFE4E1</color>
+    <color name="devide">#efefe2</color>
+
 </resources>

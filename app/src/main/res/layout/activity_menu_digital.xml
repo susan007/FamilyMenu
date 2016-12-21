@@ -57,7 +57,7 @@
                 android:text="具体做法:" 
                 android:background="#efefe2"/>
 
-            <com.ghong.tool.MyListView
+            <com.hong.tools.MyListView
                 android:id="@+id/menu_step_listView"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -65,7 +65,7 @@
                 android:paddingRight="10dp"
                 android:scrollbars="none"
                 android:divider="@android:color/transparent">
-            </com.ghong.tool.MyListView>
+            </com.hong.tools.MyListView>
         </LinearLayout>
     </ScrollView>
 

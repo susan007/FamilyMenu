@@ -3,12 +3,12 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.ghong.tool.MyListView
+    <com.hong.tools.MyListView
         android:id="@+id/menu_label_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="@android:color/transparent">
 
-    </com.ghong.tool.MyListView>
+    </com.hong.tools.MyListView>
 
 </LinearLayout>

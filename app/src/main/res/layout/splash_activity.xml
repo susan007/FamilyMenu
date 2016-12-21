@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/pink_low"
+                android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/depict"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/padding_35"
+        android:text="属于你自己的美食之旅"/>
+
+    <Button
+        android:id="@+id/start_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/depict"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/padding_20"
+        android:background="@color/pink_height"
+        android:padding="@dimen/padding_10"
+        android:text="立即开启体验"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/padding_20"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:paddingBottom="30dp"
+        android:paddingEnd="@dimen/padding_60"
+        android:paddingLeft="@dimen/padding_60"
+        android:paddingRight="@dimen/padding_60"
+        android:paddingStart="@dimen/padding_60"/>
+
+
+</RelativeLayout>

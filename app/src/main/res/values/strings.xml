@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LabDesignLibrary</string>
+    <string name="app_name">绿萝</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -10,4 +10,12 @@
     <string name="txt_yo_yo">Yo Yo</string>
     <string name="title_activity_code_lab">CodeLabActivity</string>
     <string name="contact">联系我们</string>
+    <string name="tea">恬静下午茶</string>
+    <string name="tea_detail">温柔的阳光，静谧的光阴，让身体和心灵享受一份专属的下午茶。</string>
+    <string name="meat">秘制拿手菜</string>
+    <string name="meat_detail">是否偶尔也会有做一顿大餐的激情。看这里，简单步骤做出不简单硬菜。</string>
+    <string name="fruit">清新果蔬</string>
+    <string name="fruit_detail">要滋养，更要颜值，一步都不落下，做个小美人。</string>
+    <string name="tiaoliao">精雕细琢</string>
+    <string name="tiaoliao_detail">让心灵慢下来，享受慢而有序的细致生活。</string>
 </resources>
