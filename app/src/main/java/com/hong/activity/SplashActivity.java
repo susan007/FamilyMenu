@@ -2,9 +2,11 @@ package com.hong.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -29,13 +31,27 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     private CardFragmentPagerAdapter mFragmentCardAdapter;
     private ShadowTransformer mFragmentCardShadowTransformer;
 
+    private boolean isFirst;
+    private SharedPreferences sp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_activity);
+        //判断是不是第一次进入app,是的话展示卡片，不是的话直接跳转到主页面
+        sp = getSharedPreferences("isFirst", MODE_PRIVATE);
+        isFirst = sp.getBoolean("isFirst", true);
+        Log.e("SplashActivity", isFirst + "   ");
+        if (isFirst) {
+            //此处可增加判断是否需要升级新版本
+            initView();
+            initListener();
+        } else {
+            Intent intent = new Intent(SplashActivity.this, MenuSearchActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
-        initView();
-        initListener();
     }
 
     public void initView() {
@@ -53,10 +69,10 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     public void initListener() {
         startBtn.setOnClickListener(this);
 
-        mCardAdapter.addCardItem(new CardItem(R.string.tea, R.string.tea_detail,R.drawable.splash_tea));
-        mCardAdapter.addCardItem(new CardItem(R.string.meat, R.string.meat_detail,R.drawable.splash_drag));
-        mCardAdapter.addCardItem(new CardItem(R.string.fruit, R.string.fruit_detail,R.drawable.splash_fruit));
-        mCardAdapter.addCardItem(new CardItem(R.string.tiaoliao, R.string.tiaoliao_detail,R.drawable.splash_tiaoliao));
+        mCardAdapter.addCardItem(new CardItem(R.string.tea, R.string.tea_detail, R.drawable.splash_tea));
+        mCardAdapter.addCardItem(new CardItem(R.string.meat, R.string.meat_detail, R.drawable.splash_drag));
+        mCardAdapter.addCardItem(new CardItem(R.string.fruit, R.string.fruit_detail, R.drawable.splash_fruit));
+        mCardAdapter.addCardItem(new CardItem(R.string.tiaoliao, R.string.tiaoliao_detail, R.drawable.splash_tiaoliao));
 
         viewPager.setAdapter(mCardAdapter);
         viewPager.setPageTransformer(false, mCardShadowTransformer);
@@ -84,4 +100,6 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     public static float dpToPixels(int dp, Context context) {
         return dp * (context.getResources().getDisplayMetrics().density);
     }
+
+
 }

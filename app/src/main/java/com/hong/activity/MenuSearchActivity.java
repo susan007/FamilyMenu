@@ -1,6 +1,7 @@
 package com.hong.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
@@ -64,15 +65,30 @@ public class MenuSearchActivity extends AppCompatActivity {
     private FrameLayout frameLayout;
     private FragmentManager fragmentManager;
 
+    private SharedPreferences sp;
+    private SharedPreferences.Editor editor;
+    private boolean isFirst = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_code_lab);
+
+        isFirstOpen();
         initToolbar();
         initInstances();
         initListener();
         if (savedInstanceState == null) showMenuName();
+    }
+
+    /**
+     * 判断是否是第一次进入该app
+     */
+    public void isFirstOpen() {
+        sp = getSharedPreferences("isFirst", MODE_PRIVATE);
+        editor = sp.edit();
+        editor.putBoolean("isFirst", false);
+        editor.commit();
     }
 
     /**
