@@ -23,7 +23,7 @@
 ![引导页](./img-info.png)
 ![引导页](./img-menu-label.png)
 ![引导页](./img-label-list.png)
-![引导页](./img-label-detail.png)
+![引导页](./img-menu-detail.png)
 
 ## 特此声明
 
