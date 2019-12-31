@@ -1,5 +1,7 @@
 package com.hong.tools;
 
+import android.util.Log;
+
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -28,26 +30,27 @@ public class MenuTool{
 	public static String userAgent = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.66 Safari/537.36";
 
 	// 配置您申请的KEY
-	public static final String APPKEY = "02e99da3e9cc092de38f030017fcf0a7";
+//	public static final String APPKEY = "02e99da3e9cc092de38f030017fcf0a7";
+	// 聚合数据App key
+	private static final String APPKEY = "5953c2e1cb5263bbbf3bfd634dc573ca";
 
 
 
 	// 1.菜谱大全
 	@SuppressWarnings("unchecked")
 	public static String getRequest1(String menu) {
-//		String result_degital="";
 		String result = null;
-		String url = "http://apis.juhe.cn/cook/query.php";// 请求接口地址
+		String url = "http://apis.juhe.cn/cook/query";// 请求接口地址
 		@SuppressWarnings("rawtypes")
 		Map params = new HashMap();// 请求参数
 		params.put("menu", menu);// 需要查询的菜谱名
 		params.put("key", APPKEY);// 应用APPKEY(应用详细页查询)
-		params.put("dtype", "");// 返回数据的格式,xml或json，默认json
-		params.put("pn", "");// 数据返回起始下标
-		params.put("rn", "");// 数据返回条数，最大30
+		params.put("dtype", "json");// 返回数据的格式,xml或json，默认json
+		params.put("pn", "1");// 数据返回起始下标 其实对应的是分页功能
+		params.put("rn", "30");// 数据返回条数，最大30
 		params.put("albums", "");// albums字段类型，1字符串，默认数组
-
 		try {
+			Log.e("MenuTool.java", "请求参数："+params);
 			result = net(url, params, "GET");
 			//jsonObject对象
 			JSONObject object = new JSONObject(result);
@@ -71,7 +74,7 @@ public class MenuTool{
 		Map params = new HashMap();// 请求参数
 		params.put("parentid", "");// 分类ID，默认全部
 		params.put("key", APPKEY);// 应用APPKEY(应用详细页查询)
-		params.put("dtype", "");// 返回数据的格式,xml或json，默认json
+		params.put("dtype", "json");// 返回数据的格式,xml或json，默认json
 
 		try {
 			result = net(url, params, "GET");
@@ -140,7 +143,6 @@ public class MenuTool{
 
 		try {
 			result = net(url, params, "GET");
-			
 			JSONObject object = new JSONObject(result);
 //			JSONObject object = JSONObject.fromObject(result);;
 			if (object.getInt("error_code") == 0) {

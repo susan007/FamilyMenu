@@ -7,8 +7,6 @@
         style="@style/menu_txt_20sp"
         android:text="头像"
         android:background="#efefe2"/>
-
-
     <TextView
         android:id="@+id/menu_describe"
         style="@style/menu_txt_14sp"

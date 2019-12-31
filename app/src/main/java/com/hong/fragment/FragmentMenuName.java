@@ -1,6 +1,7 @@
 package com.hong.fragment;
 
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -79,6 +80,7 @@ public class FragmentMenuName extends Fragment {
 
     private View view;
 
+    @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -87,14 +89,6 @@ public class FragmentMenuName extends Fragment {
                     setMenuListView();
                     break;
                 case 0:
-
-//                    Snackbar.make(rootLayout,"查询错误，未找到该菜",Snackbar.LENGTH_SHORT).setAction("Notice",new View.OnClickListener(){
-//                        @Override
-//                        public void onClick(View v) {
-//                            //可以添加事件动作
-//                            Log.e("CodeLabActivity","哈哈哈哈哈哈哈哈哈哈哈哈哈，我被点击了");
-//                        }
-//                    }).show();
                     Toast.makeText(getContext(), "没有查询到该菜", Toast.LENGTH_SHORT).show();
                     break;
 

@@ -27,13 +27,16 @@
                 android:id="@+id/menu_title"
                 style="@style/menu_txt_20sp"
                 android:text="秘制红烧肉" 
-                android:background="#efefe2"/>
+                android:background="#efefe2"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"/>
 
             <TextView
                 android:id="@+id/menu_describe"
                 style="@style/menu_txt_14sp"
-                android:text="这道菜很简单，也很好吃并且很有营养，一起来做做看吧，哈哈哈" 
-                />
+                android:text="这道菜很简单，也很好吃并且很有营养，一起来做做看吧，哈哈哈"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"/>
 
             <View style="@style/menu_devide_line" />
 
@@ -41,13 +44,17 @@
                 android:id="@+id/menu_material"
                 style="@style/menu_txt_16sp"
                 android:text="食材清单：" 
-                android:background="#efefe2"/>
+                android:background="#efefe2"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"/>
 
             <TextView
                 android:id="@+id/menu_material_list"
                 style="@style/menu_txt_14sp"
                 android:layout_marginTop="5dp"
-                android:text="五花肉，1000克。。。。。。" />
+                android:text="五花肉，1000克。。。。。。"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"/>
 
             <View style="@style/menu_devide_line" />
 
@@ -55,7 +62,9 @@
                 android:id="@+id/menu_steps"
                 style="@style/menu_txt_16sp"
                 android:text="具体做法:" 
-                android:background="#efefe2"/>
+                android:background="#efefe2"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"/>
 
             <com.hong.tools.MyListView
                 android:id="@+id/menu_step_listView"

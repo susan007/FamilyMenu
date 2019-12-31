@@ -9,7 +9,8 @@
         android:id="@+id/txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="按照菜系分类"/>
+        android:text="按照菜系分类"
+        android:padding="10dp"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/menu_sort_recycleview"
         android:layout_width="match_parent"

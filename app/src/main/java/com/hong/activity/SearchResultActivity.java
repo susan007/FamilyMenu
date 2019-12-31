@@ -93,7 +93,6 @@ public class SearchResultActivity extends Activity {
 		titleList = new ArrayList<String>();
 		tagList = new ArrayList<String>();
 		imgList = new ArrayList<String>();
-
 		pjb = new ParseJsonobject();
 		mr = new MenuResult();
 	}
@@ -135,7 +134,6 @@ public class SearchResultActivity extends Activity {
 	 */
 	public void startCheckMenu() {
 		new Thread(new Runnable() {
-
 			@Override
 			public void run() {
 				String menu_name = menuInput.getText().toString().trim();

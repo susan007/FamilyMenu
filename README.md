@@ -17,11 +17,18 @@
 
 ## 功能截图
 ![引导页](./img-logo.png)
-![主页](./img-main.png)
-![菜单栏](./img-setting.png)
+![功能栏](./img-setting.png)
+![主页](./img-menu-name.png)
+![引导页](./img-search2.png)
+![引导页](./img-info.png)
+![引导页](./img-menu-label.png)
+![引导页](./img-label-list.png)
+![引导页](./img-label-detail.png)
 
 ## 特此声明
 
 代码里用到了`聚合数据`申请的菜谱数据库编号，免费申请有1000次试用机会，现在次数已用完导致app搜不到菜谱，代码本身是没有问题的。
 
-大家可以自己去申请一个1000次试用，替换掉代码里的聚合数据的编号即可。
+大家可以自己去申请一个1000次试用，替换掉代码里Http请求部分的App_key即可，那个是申请聚合数据Api生成的App key。
+
+具体文件路径`main/java/com/hong/tools/MenuTool.java`

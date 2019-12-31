@@ -52,16 +52,12 @@ public class SearchByMenuNameStepActivty extends Activity {
 	
 	public void initView(){
 		intent=SearchByMenuNameStepActivty.this.getIntent();
-		md=(MenuDigital) intent.getSerializableExtra("MD");  
-		
-		
+		md=(MenuDigital) intent.getSerializableExtra("MD");
 		menuFinishedImg=(ImageView) findViewById(R.id.menu_finished_img);
 		menuTitle=(TextView) findViewById(R.id.menu_title);
 		menuDescribe=(TextView) findViewById(R.id.menu_describe);
 		menuMaterialList=(TextView) findViewById(R.id.menu_material_list);
 		stepListView=(ListView) findViewById(R.id.menu_step_listView);
-		
-		
 	}
 
 	public void initListener(){
@@ -71,7 +67,6 @@ public class SearchByMenuNameStepActivty extends Activity {
 		Glide.with(SearchByMenuNameStepActivty.this).load(md.getAlbums().get(0).toString())
 				.centerCrop().placeholder(R.drawable.loading).crossFade()
 				.into(menuFinishedImg);
-		
 		menuTitle.setText(md.getTitle());
 		menuDescribe.setText(md.getImtro());
 		menuMaterialList.setText(md.getIngredients()+";"+md.getBurden());
@@ -87,9 +82,7 @@ public class SearchByMenuNameStepActivty extends Activity {
 				R.layout.activity_menu_digital_item, 
 				new String[]{"stepImg","stepTxt"}, 
 				new int[]{R.id.menu_finished_step_img,R.id.menu_finished_step_txt});
-		
 		stepListView.setAdapter(adapter);
-		
 	}
 	
 	private List<Map<String, String>> getListViewData(){
